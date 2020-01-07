@@ -1,26 +1,28 @@
 {
-    "deploy": {
-        "packages": [{
-            "files": [
-                "**/*",
-            ],
+  "deploy": {
+    "packages": [
+      {
+        "files": ["**/*"],
 
-            "exclude": [
-                "node_modules/**",
-                ".git/**",
-                ".vscode/**",
-                "**/node_modules/**",
-            ],
-            "deployOnSave": false
-        }],
-        "targets": [{
-            "type": "sftp",
-            "name": "AliyunServer",
-            "dir": "/root/source/docker_ci",
-            "host": "47.98.252.43",
-            "port": 22,
-            "user": "root",
-            "privateKey": "/Users/xia/.ssh/id_rsa"
-        }],
-    },
+        "exclude": [
+          "node_modules/**",
+          ".git/**",
+          ".vscode/**",
+          "**/node_modules/**"
+        ],
+        "deployOnSave": false
+      }
+    ],
+    "targets": [
+      {
+        "type": "sftp",
+        "name": "AliyunServer",
+        "dir": "/root/source/docker_ci",
+        "host": "47.105.167.84",
+        "port": 22,
+        "user": "root",
+        "privateKey": "/Users/wulin/.ssh/mac-pro.pem"
+      }
+    ]
+  }
 }
