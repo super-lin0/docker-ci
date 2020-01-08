@@ -34,24 +34,24 @@ handler.on("error", function(err) {
 });
 
 handler.on("*", function(event) {
-  console.log("Received *", event.payload.action);
+  console.log("Received *", event.payload);
   //   run_cmd('sh', ['./deploy-dev.sh'], function(text){ console.log(text) });
 });
 
-// handler.on("push", function(event) {
-//   console.log(
-//     "Received a push event for %s to %s",
-//     event.payload.repository.name,
-//     event.payload.ref
-//   );
-//   // 分支判断
-//   if (event.payload.ref === "refs/heads/master") {
-//     console.log("deploy master..");
-//     run_cmd("sh", ["./deploy-dev.sh"], function(text) {
-//       console.log(text);
-//     });
-//   }
-// });
+handler.on("push", function(event) {
+  console.log(
+    "Received a push event for %s to %s",
+    event.payload.repository.name,
+    event.payload.ref
+  );
+  // 分支判断
+  if (event.payload.ref === "refs/heads/master") {
+    console.log("deploy master..");
+    run_cmd("sh", ["./deploy-dev.sh"], function(text) {
+      console.log(text);
+    });
+  }
+});
 
 // handler.on("issues", function(event) {
 //   console.log(
