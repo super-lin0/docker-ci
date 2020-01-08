@@ -34,8 +34,10 @@ handler.on("error", function(err) {
 });
 
 handler.on("*", function(event) {
-  console.log("Received *", event.payload);
-  //   run_cmd('sh', ['./deploy-dev.sh'], function(text){ console.log(text) });
+  console.log("Received *", "event.payload");
+  //   run_cmd("sh", ["./deploy-dev.sh"], function(text) {
+  //     console.log(text);
+  //   });
 });
 
 handler.on("push", function(event) {
